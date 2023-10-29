@@ -1,0 +1,23 @@
+def menu() :
+  name =input("Please enter your name :  ")
+  print("Welcome back", name)
+  while True:
+     print("---------------\n 1. Add Matrices  \n 2. Check Rotation \n 3. Invert Dictionary  \n 4. Convert Matrix to Dictionary \n 5. Check Palindrome \n 6. Search for an Element & Merge Sort \n 7. Exit \n ---------------")
+     option=int(input("what is your choice : "))
+  
+     if option == 1:
+        AddMatrices()
+     elif option == 2:
+        Checkrotation()
+     elif option == 3:
+        InvertDictionary()
+     elif option == 4:
+        Matrixtodic()
+     elif option == 5:
+       is_palindrome()
+     elif option == 6:
+        Search_Sort()
+     elif option == 7:
+         break
+     else :
+        return "please choose a number from 1 to 7"   
