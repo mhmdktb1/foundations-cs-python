@@ -51,3 +51,31 @@ def AddMatrices():#O(n^2)
 
   for row in result:
      print(row)
+def Checkrotation():#O(n^2)
+  matrix1=[]
+  matrix2=[]
+  rows=int(input("Enter the number of rows for the fist matrix:  "))
+  coulmns=int(input("Enter the number of coulmns for the first matrix :  "))
+  for i in range(rows):
+    row=[]
+    for j in range(coulmns):
+       row.append(int(input("Enter the element of the first matrix :   ")))
+    matrix1.append(row)
+  rows1=int(input("Enter the number of rows for the fist matrix:  "))
+  coulmns1=int(input("Enter the number of coulmns for the first matrix :  "))
+  for i in range(rows1):
+    row=[]
+    for j in range(coulmns1):
+       row.append(int(input("Enter the element of the second matrix :   ")))
+    matrix2.append(row)
+  if rows != coulmns1 or rows1 !=coulmns :
+     print("Not Rotation")
+  else :
+    for i in range(rows):
+       for j in range(coulmns1):
+         if matrix1[i][j] == matrix2[i][j]:
+            print("Matrix 2 rotation of matrix 1 ")
+            break
+         else :
+             print("Matrix 2 is not rotation of matrix 1 ")
+             break
