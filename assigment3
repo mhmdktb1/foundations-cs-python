@@ -1,4 +1,6 @@
 def menu() :#O(1)
+
+  
   name =input("Please enter your name :  ")
   print("Welcome back", name)
   while True:
@@ -21,3 +23,31 @@ def menu() :#O(1)
          break
      else :
         return "please choose a number from 1 to 7"   
+def AddMatrices():#O(n^2)
+  rows=int(input("enter the number of rows : " )) 
+  coulmn=int(input("enter the number of coulmn : "))
+  matrix1=[]
+  matrix2=[]
+  result = []
+  for i in range(rows):#O(n^2)
+      row=[]
+      for j in range(coulmn):
+         elements= int(input("enter the elements of the first matrix : "))
+         row.append(elements)
+      matrix1.append(row)   
+  for i in range(rows):#O(n^2)
+      row=[]
+      for j in range(coulmn):
+         elements= int(input("enter the elements of the Second matrix : "))
+         row.append(elements)
+      matrix2.append(row)  
+
+  for i in range(rows):#O(n^2)
+    row = []  
+    for j in range(coulmn):
+        row.append(matrix1[i][j] + matrix2[i][j])
+    result.append(row)
+
+
+  for row in result:
+     print(row)
