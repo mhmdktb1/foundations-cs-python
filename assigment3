@@ -118,7 +118,7 @@ def is_palindrome(s):#O(n)
       return is_palindrome(s[1:-1])
   else: 
       return False
-def Search_Sort():
+def Search_Sort():#O(nlogn)
   list = []
   while True :
     elements=int(input("enter the elment of the list (or -1 to finsh) :  "))
@@ -128,10 +128,10 @@ def Search_Sort():
        list.append(elements)
   print('your list is :\n', list,"\n Oops its need to be sorted 1 second")
   print("-----------------------")
-  print('your list after sorting is :\n', MergeS(list))
+  print('your list after sorting is :\n', MergeS(list))#O(nlogn)
   print("-----------------------")
   element=int(input('enter the element you want to search for :  '))
-  print("your element whose you secrching for in  index : " ,BSearch(list,element))
+  print("your element whose you secrching for in  index : " ,BSearch(list,element))#O(log n)
 def MergeS(list):#O(nlogn)
   if len(list)>1:
     mid=len(list)//2
