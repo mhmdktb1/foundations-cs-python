@@ -16,7 +16,7 @@ def menu() :#O(1)
      elif option == 4:
         Matrixtodic()
      elif option == 5:
-       print(is_palindrome())
+       print(is_palindrome(input("Enter a word to check if it is palindrome : ")))
      elif option == 6:
         Search_Sort()
      elif option == 7:
