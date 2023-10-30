@@ -158,3 +158,16 @@ def MergeS(list):#O(nlogn)
       j+=1
       k+=1
   return list
+def BSearch(list,element):#O(log n)
+  low=0
+  high=len(list)-1
+  
+  while low <=high:
+    mid=(low+high)//2
+    if element == list[mid]:
+      return mid
+      break
+    elif element < list[mid]:
+      high=mid
+    else:
+      low=mid+1
