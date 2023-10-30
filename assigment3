@@ -90,3 +90,24 @@ def InvertDictionary():#O(n)
   print("The original dictionry :\n" ,dic)
   dic1={value:key for key,value in dic.items()}
   print("The inverted dictionry \n:",dic1)
+def Matrixtodic():#O(n)
+  rows=int(input("how many users u want to add : "))
+  counter=1
+  dic={}
+  matrix=[]
+  for i in range(rows):
+      row=[]
+      FN=input(' First name :  ')
+      lN=input('last name :   ' )
+      ID=f"ID{counter}"
+      JT=input(" Job :  ")
+      CN=input("Company name :  ")
+      counter+=1
+      print('------------------')
+      
+      row=[FN,lN,ID,JT,CN]
+      matrix.append(row)
+  print("the matrix :",matrix)
+  for i  in range(len(matrix)):
+      dic[matrix[i][2]]=matrix[i]
+  print("the inverted matrix to dic : ",dic)
