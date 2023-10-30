@@ -73,9 +73,20 @@ def Checkrotation():#O(n^2)
   else :
     for i in range(rows):
        for j in range(coulmns1):
-         if matrix1[i][j] == matrix2[i][j]:
-            print("Matrix 2 rotation of matrix 1 ")
-            break
-         else :
-             print("Matrix 2 is not rotation of matrix 1 ")
+          if matrix1[i][j] == matrix2[i][j]:
+             print("Matrix 2 rotation of matrix 1 ")
              break
+          else :
+              print("Matrix 2 is not rotation of matrix 1 ")
+              break
+def InvertDictionary():#O(n)
+  dic={}
+  while True:
+    key=input("enter the key (or -1 to when you finsh)   ")
+    if key == '-1' :
+        break
+    value =input("enter the value :  ")
+    dic[key]=value
+  print("The original dictionry :\n" ,dic)
+  dic1={value:key for key,value in dic.items()}
+  print("The inverted dictionry \n:",dic1)
