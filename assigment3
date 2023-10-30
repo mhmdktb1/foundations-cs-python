@@ -16,7 +16,7 @@ def menu() :#O(1)
      elif option == 4:
         Matrixtodic()
      elif option == 5:
-       is_palindrome()
+       print(is_palindrome())
      elif option == 6:
         Search_Sort()
      elif option == 7:
@@ -97,8 +97,8 @@ def Matrixtodic():#O(n)
   matrix=[]
   for i in range(rows):
       row=[]
-      FN=input(' First name :  ')
-      lN=input('last name :   ' )
+      FN=input('First name :  ')
+      lN=input('last name :  ' )
       ID=f"ID{counter}"
       JT=input(" Job :  ")
       CN=input("Company name :  ")
@@ -110,4 +110,11 @@ def Matrixtodic():#O(n)
   print("the matrix :",matrix)
   for i  in range(len(matrix)):
       dic[matrix[i][2]]=matrix[i]
-  print("the inverted matrix to dic : ",dic)
+  print("The inverted matrix to dic : ",dic)
+def is_palindrome(s):
+  if len(s) <= 1:
+      return True
+  elif s[0] == s[-1]:
+      return is_palindrome(s[1:-1])
+  else: 
+      return False
