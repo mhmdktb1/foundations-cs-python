@@ -21,8 +21,8 @@ def menu() :#O(1)
         Search_Sort()
      elif option == 7:
          break
-     else :
-        return "please choose a number from 1 to 7"   
+     elif option >1 or option <7 :
+        print("enter a num in range 1 to 7") 
 def AddMatrices():#O(n^2)
   rows=int(input("enter the number of rows : " )) 
   coulmn=int(input("enter the number of coulmn : "))
