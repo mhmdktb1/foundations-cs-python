@@ -132,3 +132,29 @@ def Search_Sort():
   print("-----------------------")
   element=int(input('enter the element you want to search for :  '))
   print("your element whose you secrching for in  index : " ,BSearch(list,element))
+def MergeS(list):#O(nlogn)
+  if len(list)>1:
+    mid=len(list)//2
+    left=list[:mid]
+    right=list[mid:]
+    MergeS(left)
+    MergeS(right)
+    i=k=j=0
+    while i<len(left) and j<len(right):
+      if left[i]<right[j]:
+        list[k]=left[i]
+        i+=1
+        k+=1
+      else :
+        list[k]=right[j]
+        j+=1
+        k+=1
+    while i<len(left):
+      list[k]=left[i]
+      i+=1
+      k+=1
+    while j<len(right):
+      list[k]=right[j]
+      j+=1
+      k+=1
+  return list
