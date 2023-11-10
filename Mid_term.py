@@ -1,3 +1,6 @@
+import requests
+from bs4 import BeautifulSoup
+
 tab={}
 list=[]
 def main():
@@ -37,6 +40,7 @@ def display_menu():
     print("8. Import Tabs")
     print("9. Exit")
 def open_tab():
+    
 
     title=input("web's name u want to add : ")
     url=input("The url of this title : ")
@@ -48,13 +52,22 @@ def open_tab():
     list.append(tab)
     # Each tab we make as a dic should listed in a list to save all tabs in a one list to be able to call them buy there indeces 
 def close_tab():
-    index=("enter the index of the tab you want to close :")
+    # Taking index from the user and checking if the index provided buy comaring the index buy the len -1 of the list
+    #if the index isn;t provided we delete last opened tab buy using -1 wich acces the last index of the list 
+    #else we pop the index given from the list
+    index=int(("enter the index of the tab you want to close :"))
     if index >len(list)-1 :
        list.pop(-1)
     else :
         list.pop(index)
 def switch_tab():
-    pass
+    index=int(("enter the index of the tab you want to display:"))
+    if index >len(list)-1 :
+        display_content(-1)
+    else:
+        display_content(index)
+      
+        
 def display_all_tabs():
     pass
 def open_nested_tab():
@@ -65,4 +78,6 @@ def save_tabs():
     pass
 def import_tabs():
      pass
-main()
+def display_content(i):
+    #accessing the content
+    return list[i]["content"]
