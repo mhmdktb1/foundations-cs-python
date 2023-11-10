@@ -99,7 +99,7 @@ def open_nested_tab():
         }
          list[index]["nested_tab"].append(nested_tab)# access by the index we take the tab we want then we access the nested tab to store the info in it as a new tab   
 def clear_all_tabs():
-    pass
+    list.clear()#simple build in function to clear all tabs
 def save_tabs():
     pass
 def import_tabs():
