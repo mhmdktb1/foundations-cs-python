@@ -47,7 +47,8 @@ def open_tab():
 
     tab={"Title":title,
           "url" :url ,
-           "content" : content.prettify(),#getting the html code 
+           "content" : content.prettify(),#getting the html code
+           "nested_tab":[] #creating a list to contains the nested tab
         }
     #I take from the user the title and the url and then ad the to a dictonary 
     list.append(tab)
@@ -73,10 +74,30 @@ def switch_tab():
     else:
         print(display_content(index))#maked a method to display the content and use it here         
 def display_all_tabs():
-    for i in range(len(list)):
-        print(list[i]["Title"])
+    for i in range(len(list)):#iterating over the list 
+        print(list[i]["Title"],end = ",")#printing the title of each tab in the list 
+        if len(list[i]["nested_tab"]) >= 1:#cheaking if there any nested tab 
+            print("and its nested tab ",end = ":")
+            print(list[i]["nested_tab"][0]["Title"])#printing the title of the nested tab
 def open_nested_tab():
-    pass
+    index=int(input("The index of the tap you want to add in it nested tabs"))
+    # taking the index of the tab he wants to add in then taking the from the user the info of this nested tab                                                                  
+    if len(list)==0:#cheaking if the list is not empty 
+        print("Ther is no tabs added")
+    elif index >len(list)-1 :
+        print("there is no tab in such index ")
+    else:
+         title=input("web's name u want to add : ")
+         url=input("The url of this title : ")
+         req=requests.get(url)#requesting to get the url 
+         content=BeautifulSoup(req.content,"html.parser")#declaring variable content that contains the content of the url
+
+         nested_tab={"Title":title,
+          "url" :url ,
+           "content" : content.prettify(),#getting the html code
+           "nested_tabs":[] 
+        }
+         list[index]["nested_tab"].append(nested_tab)# access by the index we take the tab we want then we access the nested tab to store the info in it as a new tab   
 def clear_all_tabs():
     pass
 def save_tabs():
