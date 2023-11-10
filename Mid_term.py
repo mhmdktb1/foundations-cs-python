@@ -1,3 +1,28 @@
+def main():
+    while True:# here the while loop stops only when we imply break in this case i but break after exit option in case the user finsh fron an option the menu will displyed again 
+      display_menu()
+      choice = input("Enter your choice from 1 to 9: ")
+      if choice == '1':
+         open_tab()
+      elif choice == '2':
+         close_tab()
+      elif choice == '3':
+         switch_tab()
+      elif choice == '4':
+         display_all_tabs()
+      elif choice == '5':
+         open_nested_tab()
+      elif choice == '6':
+         clear_all_tabs()
+      elif choice == '7':
+         save_tabs()
+      elif choice == '8':
+         import_tabs()
+      elif choice == '9':
+         print("Exiting the Tab Manager. Goodbye!")
+         break #the break keyword which stops the while true looping
+      else: # if the user choose a number else than we mentioned the menu will displayed agin with an error message 
+          print("Exiting program  :(  See u ")
 def display_menu():
     print("Welcome to the Tab Manager!")
     print("1. Open Tab")
