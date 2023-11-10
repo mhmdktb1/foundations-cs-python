@@ -24,10 +24,10 @@ def main():
       elif choice == '8':
          import_tabs()
       elif choice == '9':
-         print("Exiting the Tab Manager. Goodbye!")
+         print("Exiting program  :(  See u ")
          break #the break keyword which stops the while true looping
       else: # if the user choose a number else than we mentioned the menu will displayed agin with an error message 
-          print("Exiting program  :(  See u ")
+          print("num should be in range of 1_9 ")
 def display_menu():
     print("Welcome to the Tab Manager!")
     print("1. Open Tab")
@@ -40,9 +40,6 @@ def display_menu():
     print("8. Import Tabs")
     print("9. Exit")
 def open_tab():
-    
-        
-
     title=input("web's name u want to add : ")
     url=input("The url of this title : ")
     req=requests.get(url)#requesting to get the url 
@@ -60,20 +57,24 @@ def close_tab():
     #if the index isn;t provided we delete last opened tab buy using -1 wich acces the last index of the list 
     #else we pop the index given from the list
     index=int(input("enter the index of the tab you want to close :"))
-    if index >len(list)-1 :
+    if len(list)==0:#cheaking if the list is not empty 
+        print("Ther is no tabs added")
+    elif index >len(list)-1 :
        list.pop(-1)
     else :
         list.pop(index)
 def switch_tab():
+    
     index=int(input("enter the index of the tab you want to display:"))
-    if len(list)==0:
+    if len(list)==0:#cheaking if the list is not empty 
         print("Ther is no tabs added")
-    elif index >len(list)-1 :
+    elif index >len(list)-1 :# cheaking if the index in the list
         print(display_content(-1))
     else:
-        print(display_content(index))        
+        print(display_content(index))#maked a method to display the content and use it here         
 def display_all_tabs():
-    pass
+    for i in range(len(list)):
+        print(list[i]["Title"])
 def open_nested_tab():
     pass
 def clear_all_tabs():
