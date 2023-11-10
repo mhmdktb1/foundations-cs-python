@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
+#learned how to scrap html from greeksforgreeks
 tab={}
 list=[]
 def main():
@@ -41,12 +41,16 @@ def display_menu():
     print("9. Exit")
 def open_tab():
     
+        
 
     title=input("web's name u want to add : ")
     url=input("The url of this title : ")
+    req=requests.get(url)#requesting to get the url 
+    content=BeautifulSoup(req.content,"html.parser")#declaring variable content that contains the content of the url
+
     tab={"Title":title,
           "url" :url ,
-           "content" : "",
+           "content" : content.prettify(),#getting the html code 
         }
     #I take from the user the title and the url and then ad the to a dictonary 
     list.append(tab)
@@ -55,19 +59,19 @@ def close_tab():
     # Taking index from the user and checking if the index provided buy comaring the index buy the len -1 of the list
     #if the index isn;t provided we delete last opened tab buy using -1 wich acces the last index of the list 
     #else we pop the index given from the list
-    index=int(("enter the index of the tab you want to close :"))
+    index=int(input("enter the index of the tab you want to close :"))
     if index >len(list)-1 :
        list.pop(-1)
     else :
         list.pop(index)
 def switch_tab():
-    index=int(("enter the index of the tab you want to display:"))
-    if index >len(list)-1 :
-        display_content(-1)
+    index=int(input("enter the index of the tab you want to display:"))
+    if len(list)==0:
+        print("Ther is no tabs added")
+    elif index >len(list)-1 :
+        print(display_content(-1))
     else:
-        display_content(index)
-      
-        
+        print(display_content(index))        
 def display_all_tabs():
     pass
 def open_nested_tab():
@@ -81,3 +85,4 @@ def import_tabs():
 def display_content(i):
     #accessing the content
     return list[i]["content"]
+main()
