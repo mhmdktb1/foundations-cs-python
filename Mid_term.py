@@ -9,3 +9,23 @@ def display_menu():
     print("7. Save Tabs")
     print("8. Import Tabs")
     print("9. Exit")
+def open_tab():
+    pass
+def close_tab():
+    pass
+def switch_tab():
+    pass
+def display_all_tabs():
+    pass
+def open_nested_tab():
+    pass
+def clear_all_tabs():
+    pass
+def save_tabs():
+    pass
+def import_tabs():
+    pass
+
+
+
+
