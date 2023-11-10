@@ -1,3 +1,5 @@
+tab={}
+list=[]
 def main():
     while True:# here the while loop stops only when we imply break in this case i but break after exit option in case the user finsh fron an option the menu will displyed again 
       display_menu()
@@ -35,9 +37,22 @@ def display_menu():
     print("8. Import Tabs")
     print("9. Exit")
 def open_tab():
-    pass
+
+    title=input("web's name u want to add : ")
+    url=input("The url of this title : ")
+    tab={"Title":title,
+          "url" :url ,
+           "content" : "",
+        }
+    #I take from the user the title and the url and then ad the to a dictonary 
+    list.append(tab)
+    # Each tab we make as a dic should listed in a list to save all tabs in a one list to be able to call them buy there indeces 
 def close_tab():
-    pass
+    index=("enter the index of the tab you want to close :")
+    if index >len(list)-1 :
+       list.pop(-1)
+    else :
+        list.pop(index)
 def switch_tab():
     pass
 def display_all_tabs():
@@ -49,8 +64,5 @@ def clear_all_tabs():
 def save_tabs():
     pass
 def import_tabs():
-    pass
-
-
-
-
+     pass
+main()
