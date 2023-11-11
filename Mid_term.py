@@ -44,8 +44,8 @@ def display_menu():#O(1)
     print("8. Import Tabs")
     print("9. Exit")
 def open_tab():#O(n)
-    title=input("web's name u want to add : ")
-    url=input("The url of this title : ")
+    title=input("Type a title : ")
+    url=input("Type a url : ")
 
     if  url.startswith("https"): #cheak if the url stating by https it will reply error message
         req=requests.get(url)#requesting to get the url 
@@ -94,10 +94,10 @@ def open_nested_tab():#O(n)
     if len(list)==0:#cheaking if the list is not empty 
         print("There is no tabs added")
     elif index >len(list)-1 :
-        print("there is no tab in such index ")
+        print("There is no tab in such index ")
     else:
-          title=input("web's name u want to add : ")
-          url=input("The url of this title : ")
+          title=input("Type a title : ")
+          url=input("Type a url : ")
           if url.startswith():
              req=requests.get(url)#requesting to get the url 
              content=BeautifulSoup(req.content,"html.parser")#declaring variable content that contains the content of the url
@@ -124,6 +124,7 @@ def import_tabs():
      with open(file,"r")as file:#reding a file 
          data=json.load(file)#variable data to load the data of the file 
          list.extend(data)# i was facing error by appending in athor function because of the format of the list so i used extend instead of append its simply take the tab from the file not the whole list
+     print("Imported Succesfully ")
 def display_content(i):#O(1)
     #accessing the content
     return list[i]["content"]
