@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import json #importing json library
 #learned how to scrap html from greeksforgreeks
 tab={}
 list=[]
@@ -101,9 +102,11 @@ def open_nested_tab():
 def clear_all_tabs():
     list.clear()#simple build in function to clear all tabs
 def save_tabs():
-    pass
+    file=input("The file path : ")#taking the file path from the user
+    with open(file,"w")as file:#opening the file path as a file "w" for writing in it , 
+     json.dump(list,file)
 def import_tabs():
-     pass
+     
 def display_content(i):
     #accessing the content
     return list[i]["content"]
