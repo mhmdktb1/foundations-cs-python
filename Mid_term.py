@@ -43,7 +43,7 @@ def display_menu():#O(1)
     print("7. Save Tabs")
     print("8. Import Tabs")
     print("9. Exit")
-def open_tab():
+def open_tab():#O(n)
     title=input("web's name u want to add : ")
     url=input("The url of this title : ")
     req=requests.get(url)#requesting to get the url 
