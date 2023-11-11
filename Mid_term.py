@@ -59,19 +59,21 @@ def open_tab():#O(n)
         list.append(tab)
           # Each tab we make as a dic should listed in a list to save all tabs in a one list to be able to call them buy there indeces 
     else : 
-       print("Invailed url")
-    
-def close_tab():
+       print("Invailed url")    
+def close_tab():#O(1)
     # Taking index from the user and checking if the index provided buy comaring the index buy the len -1 of the list
     #if the index isn;t provided we delete last opened tab buy using -1 wich acces the last index of the list 
     #else we pop the index given from the list
-    index=int(input("enter the index of the tab you want to close :"))
-    if len(list)==0:#cheaking if the list is not empty 
-        print("Ther is no tabs added")
-    elif index >len(list)-1 :
+    index=int(input("Enter the index of the tab you want to close : "))
+    if len(list)==0:#cheaking if the list is  empty 
+        print("There are no tabs added")
+    elif index >len(list)-1 :#cheaking if the index the user enter is provided
+       print("The index You entered is not provided the last tast tab u added will be deleted ")
        list.pop(-1)
+       print(list[-1]["Title"],"Deletd Succefully") 
     else :
         list.pop(index)
+        print(list[index]["Title"],"Deletd Succefully")
 def switch_tab():
     
     index=int(input("enter the index of the tab you want to display:"))
@@ -122,5 +124,4 @@ def import_tabs():
 def display_content(i):
     #accessing the content
     return list[i]["content"]
-main()
 
