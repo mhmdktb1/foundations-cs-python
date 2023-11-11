@@ -6,8 +6,10 @@ tab={}
 list=[]
 def main():#o(1)
     while True:# here the while loop stops only when we imply break in this case i but break after exit option in case the user finsh fron an option the menu will displyed again 
+      print("---------------------------")
       display_menu()
-      choice = input("Enter your choice from 1 to 9: ")
+      print("---------------------------")
+      choice = input("Enter your choice from 1 to 9 : ")
       if choice == '1':
          open_tab()
       elif choice == '2':
