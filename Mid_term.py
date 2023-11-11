@@ -106,8 +106,12 @@ def save_tabs():
     with open(file,"w")as file:#opening the file path as a file "w" for writing in it , 
      json.dump(list,file)
 def import_tabs():
+       
+     file=input("The file path : ")
+    
      with open(file,"r")as file:
-        list=json.load(file)
+         data=json.load(file)
+         list.append(data)
 def display_content(i):
     #accessing the content
     return list[i]["content"]
