@@ -109,7 +109,7 @@ def open_nested_tab():#O(n)
              list[index]["nested_tab"].append(nested_tab)# access by the index we take the tab we want then we access the nested tab to store the info in it as a new tab   
           else:
                print("Invailed url")
-def clear_all_tabs():
+def clear_all_tabs():#O(1)
     list.clear()#simple build in function to clear all tabs
 def save_tabs():
     file=input("The file path : ")#taking the file path from the user
