@@ -46,17 +46,21 @@ def display_menu():#O(1)
 def open_tab():#O(n)
     title=input("web's name u want to add : ")
     url=input("The url of this title : ")
-    req=requests.get(url)#requesting to get the url 
-    content=BeautifulSoup(req.content,"html.parser")#declaring variable content that contains the content of the url
 
-    tab={"Title":title,
+    if  url.startswith("https"): #cheak if the url stating by https it will reply error message
+        req=requests.get(url)#requesting to get the url 
+        content=BeautifulSoup(req.content,"html.parser")#declaring variable content that contains the content of the url
+        tab={"Title":title,
           "url" :url ,
            "content" : content.prettify(),#getting the html code
            "nested_tab":[] #creating a list to contains the nested tab
-        }
-    #I take from the user the title and the url and then ad the to a dictonary 
-    list.append(tab)
-    # Each tab we make as a dic should listed in a list to save all tabs in a one list to be able to call them buy there indeces 
+         }
+         #I take from the user the title and the url and then ad the to a dictonary 
+        list.append(tab)
+          # Each tab we make as a dic should listed in a list to save all tabs in a one list to be able to call them buy there indeces 
+    else : 
+       print("Invailed url")
+    
 def close_tab():
     # Taking index from the user and checking if the index provided buy comaring the index buy the len -1 of the list
     #if the index isn;t provided we delete last opened tab buy using -1 wich acces the last index of the list 
