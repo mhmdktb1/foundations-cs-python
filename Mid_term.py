@@ -112,14 +112,16 @@ def open_nested_tab():#O(n)
 def clear_all_tabs():#O(1)
     list.clear()#simple build in function to clear all tabs
 def save_tabs():
+    # used to learn from youtube channel "finxter"
     file=input("The file path : ")#taking the file path from the user
     with open(file,"w")as file:#opening the file path as a file "w" for writing in it , 
      json.dump(list,file)
+    print("Saved succesfully to ", file )
 def import_tabs():
        
      file=input("The file path : ")
     
-     with open(file,"r")as file:
+     with open(file,"r")as file:#reding a file 
          data=json.load(file)#variable data to load the data of the file 
          list.extend(data)# i was facing error by appending in athor function because of the format of the list so i used extend instead of append its simply take the tab from the file not the whole list
 def display_content(i):
