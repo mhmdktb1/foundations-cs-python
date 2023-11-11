@@ -83,31 +83,32 @@ def switch_tab():#O(1)
         print(display_content(-1))
     else:
         print(display_content(index))#maked a method to display the content and use it here         
-def display_all_tabs():
+def display_all_tabs():#O(n)
     for i in range(len(list)):#iterating over the list 
-        print(list[i]["Title"],end = ",")#printing the title of each tab in the list 
+        print(list[i]["Title"])#printing the title of each tab in the list 
         if len(list[i]["nested_tab"]) >= 1:#cheaking if there any nested tab 
-            print("and its nested tab ",end = ":")
-            print(list[i]["nested_tab"][0]["Title"])#printing the title of the nested tab
-def open_nested_tab():
-    index=int(input("The index of the tap you want to add in it nested tabs"))
+            print("\t\t",list[i]["nested_tab"][0]["Title"])#printing the title of the nested tab
+def open_nested_tab():#O(n)
+    index=int(input("The index of the tap you want to add in it nested tab :"))
     # taking the index of the tab he wants to add in then taking the from the user the info of this nested tab                                                                  
     if len(list)==0:#cheaking if the list is not empty 
-        print("Ther is no tabs added")
+        print("There is no tabs added")
     elif index >len(list)-1 :
         print("there is no tab in such index ")
     else:
-         title=input("web's name u want to add : ")
-         url=input("The url of this title : ")
-         req=requests.get(url)#requesting to get the url 
-         content=BeautifulSoup(req.content,"html.parser")#declaring variable content that contains the content of the url
-
-         nested_tab={"Title":title,
-          "url" :url ,
-           "content" : content.prettify(),#getting the html code
-           "nested_tabs":[] 
-        }
-         list[index]["nested_tab"].append(nested_tab)# access by the index we take the tab we want then we access the nested tab to store the info in it as a new tab   
+          title=input("web's name u want to add : ")
+          url=input("The url of this title : ")
+          if url.startswith():
+             req=requests.get(url)#requesting to get the url 
+             content=BeautifulSoup(req.content,"html.parser")#declaring variable content that contains the content of the url
+ 
+             nested_tab={"Title":title,
+             "url" :url ,
+             "content" : content.prettify()#getting the html code
+             }
+             list[index]["nested_tab"].append(nested_tab)# access by the index we take the tab we want then we access the nested tab to store the info in it as a new tab   
+          else:
+               print("Invailed url")
 def clear_all_tabs():
     list.clear()#simple build in function to clear all tabs
 def save_tabs():
