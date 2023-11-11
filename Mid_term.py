@@ -2,8 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import json #importing json library
 #learned how to scrap html from greeksforgreeks
-tab={}
-list=[]
+tab={}#this dictionry will conains the title,url,content,nestedtabs
+list=[]#this list will contains all the added tabs
 def main():#o(1)
     while True:# here the while loop stops only when we imply break in this case i but break after exit option in case the user finsh fron an option the menu will displyed again 
       print("---------------------------")
