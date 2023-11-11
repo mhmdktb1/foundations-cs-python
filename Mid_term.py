@@ -4,7 +4,7 @@ import json #importing json library
 #learned how to scrap html from greeksforgreeks
 tab={}
 list=[]
-def main():
+def main():#o(1)
     while True:# here the while loop stops only when we imply break in this case i but break after exit option in case the user finsh fron an option the menu will displyed again 
       display_menu()
       choice = input("Enter your choice from 1 to 9: ")
@@ -110,8 +110,8 @@ def import_tabs():
      file=input("The file path : ")
     
      with open(file,"r")as file:
-         data=json.load(file)
-         list.append(data)
+         data=json.load(file)#variable data to load the data of the file 
+         list.extend(data)# i was facing error by appending in athor function because of the format of the list so i used extend instead of append its simply take the tab from the file not the whole list
 def display_content(i):
     #accessing the content
     return list[i]["content"]
