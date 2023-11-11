@@ -30,8 +30,9 @@ def main():#o(1)
          print("Exiting program  :(  See u ")
          break #the break keyword which stops the while true looping
       else: # if the user choose a number else than we mentioned the menu will displayed agin with an error message 
-          print("num should be in range of 1_9 ")
-def display_menu():
+          print("Number should be in range of 1_9 ")
+def display_menu():#O(1)
+    #printing the menu 
     print("Welcome to the Tab Manager!")
     print("1. Open Tab")
     print("2. Close Tab")
