@@ -124,7 +124,7 @@ def import_tabs():
      with open(file,"r")as file:#reding a file 
          data=json.load(file)#variable data to load the data of the file 
          list.extend(data)# i was facing error by appending in athor function because of the format of the list so i used extend instead of append its simply take the tab from the file not the whole list
-def display_content(i):
+def display_content(i):#O(1)
     #accessing the content
     return list[i]["content"]
 
