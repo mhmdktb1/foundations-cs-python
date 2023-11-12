@@ -8,7 +8,7 @@ def main():#o(1)
     while True:# here the while loop stops only when we imply break in this case i but break after exit option in case the user finsh fron an option the menu will displyed again 
       print("---------------------------")
       display_menu()
-      print("---------------------------")
+      print("-"*20)
       choice = input("Enter your choice from 1 to 9 : ")
       if choice == '1':
          open_tab()
@@ -64,7 +64,10 @@ def close_tab():#O(1)
     # Taking index from the user and checking if the index provided buy comaring the index buy the len -1 of the list
     #if the index isn;t provided we delete last opened tab buy using -1 wich acces the last index of the list 
     #else we pop the index given from the list
-    index=int(input("Enter the index of the tab you want to close : "))
+    try: 
+        index=int(input("Enter the index of the tab you want to close : "))
+    except ValueError:
+       print("Error: Please enter a valid integer.") 
     if len(list)==0:#cheaking if the list is  empty 
         print("There are no tabs added")
     elif index >len(list)-1 :#cheaking if the index the user enter is provided
@@ -101,7 +104,7 @@ def open_nested_tab():#O(n)
           if url.startswith():
              req=requests.get(url)#requesting to get the url 
              content=BeautifulSoup(req.content,"html.parser")#declaring variable content that contains the content of the url
- 
+             #create a new dictiony to take the content od the nested tab
              nested_tab={"Title":title,
              "url" :url ,
              "content" : content.prettify()#getting the html code
@@ -128,4 +131,5 @@ def import_tabs():
 def display_content(i):#O(1)
     #accessing the content
     return list[i]["content"]
-
+main()
+9

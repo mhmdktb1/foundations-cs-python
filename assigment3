@@ -172,3 +172,4 @@ def BSearch(list,element):#O(log n)
     else:
       low=mid+1
 menu()#run the program 
+
