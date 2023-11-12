@@ -92,10 +92,13 @@ def switch_tab():#O(1)
         else:
             print(display_content(index))#make a method to display the content and use it here         
 def display_all_tabs():#O(n)
-    for i in range(len(list)):#iterating over the list 
-        print(list[i]["Title"])#printing the title of each tab in the list 
-        if len(list[i]["nested_tab"]) >= 1:#cheaking if there any nested tab 
-            print("\t\t",list[i]["nested_tab"][0]["Title"])#printing the title of the nested tab
+    if len(list) == 0 :
+        print("There is no tabs opened to display") 
+    else:
+        for i in range(len(list)):#iterating over the list 
+            print(list[i]["Title"])#printing the title of each tab in the list 
+            if len(list[i]["nested_tab"]) >= 1:#cheaking if there any nested tab 
+                print("\t\t",list[i]["nested_tab"][0]["Title"])#printing the title of the nested tab
 def open_nested_tab():#O(n)
     index=int(input("The index of the tap you want to add in it nested tab :"))
     # taking the index of the tab he wants to add in then taking the from the user the info of this nested tab                                                                  
@@ -137,4 +140,3 @@ def display_content(i):#O(1)
     #accessing the content
     return list[i]["content"]
 main()
-9
