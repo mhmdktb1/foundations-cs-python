@@ -124,7 +124,11 @@ def open_nested_tab():#O(n)
             else:
                 print("Invailed url")
 def clear_all_tabs():#O(1)
-    list.clear()#simple build in function to clear all tabs
+    if len(list)==0:
+        print("There no tabs already")
+    else :
+        list.clear()#simple build in function to clear all tabs
+
 def save_tabs():
     # used to learn from youtube channel "finxter"
     file=input("The file path : ")#taking the file path from the user
