@@ -79,14 +79,18 @@ def close_tab():#O(1)
           list.pop(index)
           print(list[index]["Title"],"Deletd Succefully")
 def switch_tab():#O(1)
-    index=int(input("enter the index of the tab you want to display:"))
-    if len(list)==0:#cheaking if the list is not empty 
-        print("There is no tabs added")
-    elif index >len(list)-1 :# cheaking if the index in the list
-        print("The index You entered is not provided the last tast tab u added will be displayed : ")
-        print(display_content(-1))
-    else:
-        print(display_content(index))#maked a method to display the content and use it here         
+    try:
+        index=int(input("enter the index of the tab you want to display:"))
+    except ValueError:
+        print("Error : please enter a valied integer")  
+    else :
+        if len(list)==0:#cheaking if the list is not empty 
+            print("There is no tabs added")
+        elif index >len(list)-1 :# cheaking if the index in the list
+            print("The index You entered is not provided the last tast tab u added will be displayed : ")
+            print(display_content(-1))
+        else:
+            print(display_content(index))#make a method to display the content and use it here         
 def display_all_tabs():#O(n)
     for i in range(len(list)):#iterating over the list 
         print(list[i]["Title"])#printing the title of each tab in the list 
