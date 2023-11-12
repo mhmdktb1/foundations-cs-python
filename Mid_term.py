@@ -132,10 +132,17 @@ def save_tabs():
     # used to learn from youtube channel "finxter"
     if len(list)==0:
         print("There is no tabs to save")
-    file=input("The file path : ")#taking the file path from the user
-    with open(file,"w")as file:#opening the file path as a file "w" for writing in it , 
-     json.dump(list,file)
-    print("Saved succesfully to ", file )
+    else :
+      try:
+          file=input("The file path : ")#taking the file path from the user
+          print("Error : File path is uncorrect ")
+      
+          with open(file,"w")as file:#opening the file path as a file "w" for writing in it , 
+             json.dump(list,file)
+          print("Saved Succesfully")
+      except FileNotFoundError :#cheack if the path is found
+          print("Error : File path is uncorrect ")
+   
 def import_tabs():
        
      file=input("The file path : ")
