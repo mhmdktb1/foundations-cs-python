@@ -128,9 +128,10 @@ def clear_all_tabs():#O(1)
         print("There no tabs already")
     else :
         list.clear()#simple build in function to clear all tabs
-
 def save_tabs():
     # used to learn from youtube channel "finxter"
+    if len(list)==0:
+        print("There is no tabs to save")
     file=input("The file path : ")#taking the file path from the user
     with open(file,"w")as file:#opening the file path as a file "w" for writing in it , 
      json.dump(list,file)
