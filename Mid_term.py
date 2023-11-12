@@ -128,29 +128,33 @@ def clear_all_tabs():#O(1)
         print("There no tabs already")
     else :
         list.clear()#simple build in function to clear all tabs
+        print("All tabs deleted!")
 def save_tabs():
     # used to learn from youtube channel "finxter"
-    if len(list)==0:
-        print("There is no tabs to save")
-    else :
-      try:
-          file=input("The file path : ")#taking the file path from the user
-          print("Error : File path is uncorrect ")
-      
-          with open(file,"w")as file:#opening the file path as a file "w" for writing in it , 
-             json.dump(list,file)
-          print("Saved Succesfully")
-      except FileNotFoundError :#cheack if the path is found
-          print("Error : File path is uncorrect ")
-   
-def import_tabs():
-       
-     file=input("The file path : ")
+    if len( list) == 0:
+      print("There are no tabs to save")
+    else:
+        try:
+           file = input("Enter the file path: ")  # Taking the file path from the user
+
+           with open(file, "w") as file:  # Opening the file path as a file "w" for writing in it
+                json.dump(list, file)
+           print("Saved Successfully")
+        except FileNotFoundError:
+             print("Error: File path not found or incorrect")
     
-     with open(file,"r")as file:#reding a file 
+
+    
+def import_tabs():
+    try:   
+      file=input("The file path : ")
+    
+      with open(file,"r")as file:#reding a file 
          data=json.load(file)#variable data to load the data of the file 
          list.extend(data)# i was facing error by appending in athor function because of the format of the list so i used extend instead of append its simply take the tab from the file not the whole list
-     print("Imported Succesfully ")
+      print("Imported Succesfully ")
+    except FileNotFoundError :#cheack if the path is found
+          print("Error : File path is uncorrect ")
 def display_content(i):#O(1)
     #accessing the content
     return list[i]["content"]
