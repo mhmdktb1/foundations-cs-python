@@ -57,6 +57,7 @@ def open_tab():#O(n)
          }
          #I take from the user the title and the url and then ad the to a dictonary 
         list.append(tab)
+        print("added Succefully ")
           # Each tab we make as a dic should listed in a list to save all tabs in a one list to be able to call them buy there indeces 
     else : 
        print("Invailed url")    
@@ -98,7 +99,7 @@ def display_all_tabs():#O(n)
         for i in range(len(list)):#iterating over the list 
             print(list[i]["Title"])#printing the title of each tab in the list 
             if len(list[i]["nested_tab"]) >= 1:#cheaking if there any nested tab 
-                print("\t\t",list[i]["nested_tab"][0]["Title"])#printing the title of the nested tab
+                print("\t -",list[i]["nested_tab"][0]["Title"])#printing the title of the nested tab
 def open_nested_tab():#O(n)
     try: #trying the code and test it
         index=int(input("Enter the index of the tab you want to close : "))
@@ -112,7 +113,7 @@ def open_nested_tab():#O(n)
         else:
             title=input("Type a title : ")
             url=input("Type a url : ")
-            if url.startswith():
+            if url.startswith("https"):
                 req=requests.get(url)#requesting to get the url 
                 content=BeautifulSoup(req.content,"html.parser")#declaring variable content that contains the content of the url
                 #create a new dictiony to take the content od the nested tab
@@ -121,6 +122,7 @@ def open_nested_tab():#O(n)
                 "content" : content.prettify()#getting the html code
                 }
                 list[index]["nested_tab"].append(nested_tab)# access by the index we take the tab we want then we access the nested tab to store the info in it as a new tab   
+                print("added Succefully ")
             else:
                 print("Invailed url")
 def clear_all_tabs():#O(1)
@@ -138,13 +140,10 @@ def save_tabs():
            file = input("Enter the file path: ")  # Taking the file path from the user
 
            with open(file, "w") as file:  # Opening the file path as a file "w" for writing in it
-                json.dump(list, file)
+                json.dump(list, file)#save the list into the file 
            print("Saved Successfully")
         except FileNotFoundError:
-             print("Error: File path not found or incorrect")
-    
-
-    
+             print("Error: File path not found or incorrect") 
 def import_tabs():
     try:   
       file=input("The file path : ")
