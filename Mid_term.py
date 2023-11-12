@@ -100,26 +100,29 @@ def display_all_tabs():#O(n)
             if len(list[i]["nested_tab"]) >= 1:#cheaking if there any nested tab 
                 print("\t\t",list[i]["nested_tab"][0]["Title"])#printing the title of the nested tab
 def open_nested_tab():#O(n)
-    index=int(input("The index of the tap you want to add in it nested tab :"))
-    # taking the index of the tab he wants to add in then taking the from the user the info of this nested tab                                                                  
-    if len(list)==0:#cheaking if the list is not empty 
-        print("There is no tabs added")
-    elif index >len(list)-1 :
-        print("There is no tab in such index ")
-    else:
-          title=input("Type a title : ")
-          url=input("Type a url : ")
-          if url.startswith():
-             req=requests.get(url)#requesting to get the url 
-             content=BeautifulSoup(req.content,"html.parser")#declaring variable content that contains the content of the url
-             #create a new dictiony to take the content od the nested tab
-             nested_tab={"Title":title,
-             "url" :url ,
-             "content" : content.prettify()#getting the html code
-             }
-             list[index]["nested_tab"].append(nested_tab)# access by the index we take the tab we want then we access the nested tab to store the info in it as a new tab   
-          else:
-               print("Invailed url")
+    try: #trying the code and test it
+        index=int(input("Enter the index of the tab you want to close : "))
+    except ValueError:#handling the error if its found
+       print("Error: Please enter a valid integer.")     # taking the index of the tab he wants to add in then taking the from the user the info of this nested tab                                                                  
+    else :
+        if len(list)==0:#cheaking if the list is not empty 
+            print("There is no tabs added")
+        elif index >len(list)-1 :
+            print("There is no tab in such index ")
+        else:
+            title=input("Type a title : ")
+            url=input("Type a url : ")
+            if url.startswith():
+                req=requests.get(url)#requesting to get the url 
+                content=BeautifulSoup(req.content,"html.parser")#declaring variable content that contains the content of the url
+                #create a new dictiony to take the content od the nested tab
+                nested_tab={"Title":title,
+                "url" :url ,
+                "content" : content.prettify()#getting the html code
+                }
+                list[index]["nested_tab"].append(nested_tab)# access by the index we take the tab we want then we access the nested tab to store the info in it as a new tab   
+            else:
+                print("Invailed url")
 def clear_all_tabs():#O(1)
     list.clear()#simple build in function to clear all tabs
 def save_tabs():
@@ -139,4 +142,5 @@ def import_tabs():
 def display_content(i):#O(1)
     #accessing the content
     return list[i]["content"]
+
 main()
