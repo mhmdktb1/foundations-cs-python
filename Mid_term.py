@@ -64,19 +64,20 @@ def close_tab():#O(1)
     # Taking index from the user and checking if the index provided buy comaring the index buy the len -1 of the list
     #if the index isn;t provided we delete last opened tab buy using -1 wich acces the last index of the list 
     #else we pop the index given from the list
-    try: 
+    try: #trying the code and test it
         index=int(input("Enter the index of the tab you want to close : "))
-    except ValueError:
+    except ValueError:#handling the error if its found
        print("Error: Please enter a valid integer.") 
-    if len(list)==0:#cheaking if the list is  empty 
-        print("There are no tabs added")
-    elif index >len(list)-1 :#cheaking if the index the user enter is provided
-       print("The index You entered is not provided the last tast tab u added will be deleted ")
-       list.pop(-1)
-       print(list[-1]["Title"],"Deletd Succefully") 
-    else :
-        list.pop(index)
-        print(list[index]["Title"],"Deletd Succefully")
+    else:#if there is no error it will run correctely
+       if len(list)==0:#cheaking if the list is  empty 
+          print("There are no tabs added")
+       elif index >len(list)-1 :#cheaking if the index the user enter is provided
+         print("The index You entered is not provided the last tast tab u added will be deleted ")
+         list.pop(-1)
+         print(list[-1]["Title"],"Deletd Succefully") 
+       else :
+          list.pop(index)
+          print(list[index]["Title"],"Deletd Succefully")
 def switch_tab():#O(1)
     index=int(input("enter the index of the tab you want to display:"))
     if len(list)==0:#cheaking if the list is not empty 
