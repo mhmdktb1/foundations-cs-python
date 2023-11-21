@@ -7,7 +7,8 @@ class Linkedlist():
     self.size=0
     self.head=None
     self.tail=None
-  def addnode(self,value):
+  def addnode(self):
+    value=eval(input("Enter a numerical value"))
     node=Node(value)
     if self.size ==0: 
       self.head=node
@@ -17,4 +18,11 @@ class Linkedlist():
       self.tail.next=node
       self.tail=node
       self.size+=1
- s
+  def display(self):
+    current=self.head
+    if self.size ==0: 
+      print('The linked list is empty')
+    else :
+      while current != None:
+        print(current.value,end=" --> ")
+        current=current.next
