@@ -8,21 +8,51 @@ class Linkedlist():
     self.head=None
     self.tail=None
   def addnode(self):
-    value=eval(input("Enter a numerical value"))
-    node=Node(value)
-    if self.size ==0: 
-      self.head=node
-      self.tail=node   
-      self.size+=1
-    else:
-      self.tail.next=node
-      self.tail=node
-      self.size+=1
+     value=eval(input("Enter a numerical value : "))
+     node=Node(value)
+     if self.size ==0: 
+         self.head=node
+         self.tail=node   
+         self.size+=1
+     else:
+         self.tail.next=node
+         self.tail=node
+         self.size+=1
   def display(self):
-    current=self.head
-    if self.size ==0: 
-      print('The linked list is empty')
-    else :
-      while current != None:
-        print(current.value,end=" --> ")
-        current=current.next
+     print('The size : ',self.size)
+     current=self.head
+     if self.size ==0: 
+         print('The linked list is empty')
+     else :
+         while current != None:
+             print(current.value,end=" ")
+             current=current.next
+  def searchdel(self):
+       print("The size :",self.size)
+       if self.size < 1:
+          print('The linked list is empty')
+       else:
+          val=eval(input("Enter a value to delete : "))
+          current=self.head
+          pointer=current
+          while current is not None:
+            if current.value == val:
+              if self.size==1 :
+                self.head=self.tail=None
+                self.size-=1
+                break
+              elif self.head.value==val:
+                self.head =self.head.next
+                current=self.head
+                pointer=current
+                self.size-=1
+              elif current.value == val:
+                pointer.next=current.next
+                current=current.next
+                self.size-=1
+            else:
+                pointer=current
+                current=current.next
+l=Linkedlist()
+l.searchdel()
+l.display()
