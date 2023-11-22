@@ -62,8 +62,25 @@ class stack():
      self.items=list(s)
      self.size+=len(s)
    def pop(self):
-      self.items.pop[-1]
+      poped=self.items.pop()
       self.size-=1
-       
+      return poped 
 def ispalindrome():
-   pass
+   list1=[]
+   st=stack()
+   st.add()
+   mid=st.size//2
+   for i in range(mid):
+      char=st.pop()
+      list1.append(char)
+   if len(list1)==st.size:
+      if st.items==list1:
+         print("palindrome")
+      else:
+         print("Not palindrome")
+   else:
+      if st.items[:mid]==list1:
+         print('palindrome')
+      else:
+         print("Not palindrome")
+ispalindrome()
