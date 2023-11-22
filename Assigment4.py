@@ -53,6 +53,13 @@ class Linkedlist():
             else:
                 pointer=current
                 current=current.next
-l=Linkedlist()
-l.searchdel()
-l.display()
+class stack():
+   def __init__(self):
+      self.items=[]
+      self.size=1
+   def add(self):
+     s=input("enter a string : ")
+     self.items=list(s)
+       
+def ispalindrome():
+   pass
