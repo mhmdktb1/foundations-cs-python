@@ -56,10 +56,14 @@ class Linkedlist():
 class stack():
    def __init__(self):
       self.items=[]
-      self.size=1
+      self.size=0
    def add(self):
      s=input("enter a string : ")
      self.items=list(s)
+     self.size+=len(s)
+   def pop(self):
+      self.items.pop[-1]
+      self.size-=1
        
 def ispalindrome():
    pass
